@@ -1,6 +1,10 @@
 import Image from "next/legacy/image";
 import logo from '../../public/logo.png'
-import { AiOutlineSearch } from 'react-icons/ai'
+import { 
+    AiOutlineSearch, 
+    AiFillHome, 
+    AiOutlinePlusCircle 
+} from 'react-icons/ai'
 
 const Header = () => {
     return (
@@ -26,8 +30,8 @@ const Header = () => {
                 <input type="text" placeholder="Search" className="bg-gray-50 pl-8 border-gray-500 text-lg focus:ring-black focus:border-black rounded-md border-2" />
             </form>
             <div>
-                <p>Home Button</p>
-                <p>+ Button</p>
+                <AiFillHome />
+                <AiOutlinePlusCircle />
                 <p>User Pic</p>
             </div>
         </header>
