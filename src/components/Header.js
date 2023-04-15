@@ -29,9 +29,9 @@ const Header = () => {
                 </div>
                 <input type="text" placeholder="Search" className="bg-gray-50 pl-8 border-gray-500 text-lg focus:ring-black focus:border-black rounded-md border-2" />
             </form>
-            <div>
-                <AiFillHome />
-                <AiOutlinePlusCircle />
+            <div className="flex space-x-5">
+                <AiFillHome className="text-3xl" />
+                <AiOutlinePlusCircle className="text-3xl" />
                 <p>User Pic</p>
             </div>
         </header>
