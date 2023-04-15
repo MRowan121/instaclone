@@ -1,5 +1,5 @@
 import Image from "next/legacy/image";
-import logo from '../../public/logo.png'
+import logo from '../../public/logo.png';
 import { 
     AiOutlineSearch, 
     AiFillHome, 
@@ -8,7 +8,7 @@ import {
 
 const Header = () => {
     return (
-        <header className="flex items-center justify-between max-w-6xl">
+        <header className="flex items-center justify-between max-w-6xl mx-4 xl:mx-auto">
             <div className="cursor-pointer h-24 w-48 relative hidden lg:inline-grid">
                 <Image 
                     src={logo} 
@@ -29,10 +29,14 @@ const Header = () => {
                 </div>
                 <input type="text" placeholder="Search" className="bg-gray-50 pl-8 border-gray-500 text-lg focus:ring-black focus:border-black rounded-md border-2" />
             </form>
-            <div className="flex space-x-5">
-                <AiFillHome className="icon" />
+            <div className="flex space-x-5 items-center">
+                <AiFillHome className="icon hidden md:inline-flex" />
                 <AiOutlinePlusCircle className="icon" />
-                <p>User Pic</p>
+                <img 
+                    src="/headshot.png"
+                    alt="user-image" 
+                    className="h-14 rounded-full"
+                />
             </div>
         </header>
     )
