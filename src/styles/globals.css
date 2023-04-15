@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .icon {
+    @apply text-3xl cursor-pointer hover:scale-125 transition-transform duration-200
+  }
+}
