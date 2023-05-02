@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import logo from '../../public/logo.png';
 import { 
     AiOutlineSearch, 
@@ -8,7 +8,7 @@ import {
 
 const Header = () => {
     return (
-        <header className="shadow-sm border-b sticky top-0 bg-white z-30">
+        <header className="shadow-sm border-b sticky top-0 bg-white bg-gr z-30">
             <div className="flex items-center justify-between max-w-6xl mx-4 shadow-sm xl:mx-auto">
                 <div className="cursor-pointer h-24 w-48 relative hidden lg:inline-grid">
                     <Image 
