@@ -1,11 +1,12 @@
 import Stories from "./Stories";
+import Posts from "./Posts";
 
 const Feed = () => {
     return(
         <main>
             <section>
                 <Stories />
-                {/* posts */}
+                <Posts />
             </section>
             <section>
                 {/* mini profile */}
