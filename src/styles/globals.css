@@ -19,4 +19,7 @@
   .icon {
     @apply text-3xl cursor-pointer hover:scale-125 transition-transform duration-200 ease-out
   }
+  .btn {
+    @apply text-2xl hover:scale-125 transition-transform ease-in-out duration-200 cursor-pointer
+  }
 }
