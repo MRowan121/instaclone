@@ -1,4 +1,6 @@
 import { BiDotsHorizontalRounded } from 'react-icons/bi'
+import { AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai'
+import { BsBookmark } from 'react-icons/bs'
 
 const Post = ({ key, id, username, userImg, img, caption }) => {
     return (
@@ -10,13 +12,20 @@ const Post = ({ key, id, username, userImg, img, caption }) => {
                     alt={username} 
                 />
                 <p className='font-bold flex-1'>{username}</p>
-                <BiDotsHorizontalRounded className='h-5' />
+                <BiDotsHorizontalRounded className='h-7 text-2xl' />
             </div>
             <img
                 className='object-cover w-full'
                 src={img}
                 alt=''
             />
+            <div className='flex justify-between p-4'>
+                <div className='flex space-x-4'>
+                    <AiOutlineHeart className='btn'/>
+                    <AiOutlineMessage className='btn' />
+                </div>
+                <BsBookmark className='btn' />
+            </div>
         </div>
     )
 }
