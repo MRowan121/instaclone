@@ -8,7 +8,7 @@ const Feed = () => {
                 <Stories />
                 <Posts />
             </section>
-            <section>
+            <section className="hidden md:inline-grid md:col-span-1">
                 {/* mini profile */}
                 {/*  */}
             </section>
