@@ -1,6 +1,6 @@
 import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai'
-import { BsBookmark } from 'react-icons/bs'
+import { BsBookmark, BsEmojiSmile } from 'react-icons/bs'
 
 const Post = ({ key, id, username, userImg, img, caption }) => {
     return (
@@ -26,6 +26,21 @@ const Post = ({ key, id, username, userImg, img, caption }) => {
                 </div>
                 <BsBookmark className='btn' />
             </div>
+            <p className='p-5 truncate'>
+                <span className='font-bold mr-2'>
+                    {username}
+                </span>
+                {caption}
+            </p>
+            <form className='flex items-center p-4'>
+                <BsEmojiSmile className='btn mr-4' />
+                <input 
+                    className='border-none flex-1 focus:ring-0' 
+                    type='text' 
+                    placeholder='Enter your comment...'
+                />
+                <button className='text-blue-400 font-bold'>Post</button>
+            </form>
         </div>
     )
 }
