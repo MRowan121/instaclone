@@ -1,27 +1,28 @@
-import minifaker from 'minifaker'
+import { faker } from '@faker-js/faker';
 import { useEffect, useState } from 'react'
 
 const Suggestions = () => {
     const [suggestions, setSuggestions] = useState([])
-    
+
     useEffect(() => {
-        const suggestions = minifaker.array(5, (i) => (
+        const suggestions = Array.from({length: 5}, () => (
             {
-                username: minifaker.username({locale: "en"}).toLowerCase(),
-                jobTitle: minifaker.jobTitle(),
-                id: i
+                userId: faker.datatype.uuid(),
+                username: faker.internet.userName(),
+                jobTitle: faker.name.jobTitle(),
+                avatar: faker.image.avatar(),
             }
         ))
         setSuggestions(suggestions)
-    },[])
+    }, [])
 
     const display = suggestions.map(suggestion => {
         return (
-            <div className='flex items-center justify-between mt-3'>
+            <div className='flex items-center justify-between mt-3' key={suggestion.userId}>
                 <img
                     className='h-10 rounded-full border p-[2px]' 
-                    src={`https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`} 
-                    alt=''
+                    src={suggestion.avatar} 
+                    alt={suggestion.username}
                 />
                 <div className='flex-1 ml-4'>
                     <h2 className='font-semibold text-sm'>{suggestion.username}</h2>
