@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react';
-import minifaker from 'minifaker'
-import 'minifaker/locales/en'
 import Story from './Story';
+import { faker } from '@faker-js/faker';
 
 const Stories = () => {
     const [storyUsers, setStoryUsers] = useState([])
+
     useEffect(() => {
-        const storyUsers = minifaker.array(20, (i) => ({
-            username: minifaker.username({ locale:'en' }).toLowerCase(),
-            img: `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`,
-            id: i,
-        }));
+        const storyUsers = Array.from({length: 20}, () => (
+            {
+                userId: faker.datatype.uuid(),
+                username: faker.internet.userName(),
+                avatar: faker.image.avatar(),
+            }
+        ))
         setStoryUsers(storyUsers)
     }, [])
 
     const storyFeed = storyUsers.map(user => {
-        return <Story key={user.id} username={user.username} image={user.img} />
+        return <Story key={user.userId} username={user.username} image={user.avatar} />
     })
     
     return(

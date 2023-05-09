@@ -2,7 +2,7 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai'
 import { BsBookmark, BsEmojiSmile } from 'react-icons/bs'
 
-const Post = ({ key, id, username, userImg, img, caption }) => {
+const Post = ({ id, username, userImg, img, caption }) => {
     return (
         <div className='bg-white my-7 border rounded-md'>
             <div className="flex items-center p-5">
@@ -17,7 +17,7 @@ const Post = ({ key, id, username, userImg, img, caption }) => {
             <img
                 className='object-cover w-full'
                 src={img}
-                alt=''
+                alt={username}
             />
             <div className='flex justify-between p-4'>
                 <div className='flex space-x-4'>
