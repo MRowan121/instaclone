@@ -5,8 +5,11 @@ import {
     AiFillHome, 
     AiOutlinePlusCircle 
 } from 'react-icons/ai'
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Header = () => {
+    const {data: session} = useSession();
+
     return (
         <header className="shadow-sm border-b sticky top-0 bg-white bg-gr z-30">
             <div className="flex items-center justify-between max-w-6xl mx-4 shadow-sm xl:mx-auto">
@@ -36,12 +39,20 @@ const Header = () => {
                 </form>
                 <div className="flex space-x-5 items-center">
                     <AiFillHome className="icon hidden md:inline-flex" />
-                    <AiOutlinePlusCircle className="icon" />
-                    <img 
-                        src="/headshot.png"
-                        alt="user-image" 
-                        className="icon h-14 rounded-full"
-                    />
+                    {session ? (
+                        <>
+                            <AiOutlinePlusCircle className="icon" />
+                            <img 
+                                src={session.user.image}
+                                alt="user-image"
+                                referrerPolicy="no-referrer"
+                                className="icon h-14 rounded-full"
+                                onClick={signOut}
+                            />
+                        </>
+                    ): (
+                        <button onClick={signIn}>Sign in</button>
+                    )}
                 </div>
             </div>
         </header>

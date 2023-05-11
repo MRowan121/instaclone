@@ -16,7 +16,7 @@ export default function signin({ providers }) {
                     {Object.values(providers).map(provider => (
                         <div key={provider.name} className="flex flex-col items-center">
                             <img 
-                                src="https://raw.githubusercontent.com/ijsto/reactnextjssnippets/master/images/logo02.png" 
+                                src="https://www.blookup.com/en/blog/wp-content/uploads/2018/10/klan-loup-instagram.png" 
                                 alt="instagram logo"
                                 className="w-32 object-cover"
                             />
