@@ -1,8 +1,14 @@
+import { useRecoilState } from "recoil";
 import { modalState } from "../../atom/modalAtom";
 
 const UploadModal = () => {
+    const [open, setOpen] = useRecoilState(modalState)
+
     return (
-        <h1>Modal</h1>
+        <div>
+            <h1>Modal</h1>
+            {open && <h1>The modal is open</h1>}
+        </div>
     )
 }
 

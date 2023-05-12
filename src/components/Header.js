@@ -1,14 +1,14 @@
 import Image from "next/legacy/image";
 import logo from '../../public/logo.png';
-import { 
-    AiOutlineSearch, 
-    AiFillHome, 
-    AiOutlinePlusCircle 
-} from 'react-icons/ai'
+import { AiOutlineSearch, AiFillHome, AiOutlinePlusCircle } from 'react-icons/ai'
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRecoilState } from "recoil";
+import { modalState } from "../../atom/modalAtom";
 
 const Header = () => {
     const {data: session} = useSession();
+    const [open, setOpen] = useRecoilState(modalState)
+
 
     return (
         <header className="shadow-sm border-b sticky top-0 bg-white bg-gr z-30">
@@ -41,7 +41,7 @@ const Header = () => {
                     <AiFillHome className="icon hidden md:inline-flex" />
                     {session ? (
                         <>
-                            <AiOutlinePlusCircle className="icon" />
+                            <AiOutlinePlusCircle className="icon" onClick={() => setOpen(true)} />
                             <img 
                                 src={session.user.image}
                                 alt="user-image"
