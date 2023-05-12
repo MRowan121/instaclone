@@ -19,6 +19,22 @@ const UploadModal = () => {
         }
     }
 
+    const userImage = (
+        <img 
+            onClick={() => setSelectedFile(null)} 
+            src={selectedFile} 
+            alt='' 
+            className="w-full max-h-[400px] object-cover cursor-pointer"
+        />
+    )
+
+    const cameraImage = (
+        <AiOutlineCamera 
+            className="cursor-pointer text-5xl bg-red-200 p-2 rounded-full border-2 text-red-500"
+            onClick={() => filePickerRef.current.click()}
+        />
+    )
+
     return (
         <div>
             {open && (
@@ -28,18 +44,7 @@ const UploadModal = () => {
                     className="max-w-lg w-[90%] p-6 absolute top-56 left-[50%] translate-x-[-50%] bg-white outline-none border-2 rounded-md shadow-md"
                 >
                     <div className="flex flex-col justify-center items-center h-[100%]">
-                        {selectedFile ? (
-                            <img 
-                                onClick={() => setSelectedFile(null)} 
-                                src={selectedFile} 
-                                alt='' 
-                                className="w-full max-h-[400px] object-cover cursor-pointer"
-                            />
-                        ) : (<AiOutlineCamera 
-                            className="cursor-pointer text-5xl bg-red-200 p-2 rounded-full border-2 text-red-500"
-                            onClick={() => filePickerRef.current.click()}
-                            />)
-                        }
+                        {selectedFile ? userImage : cameraImage}
                         <input type="file" hidden ref={filePickerRef} onChange={addImageToPost} />
                         <input 
                             type="text" 
@@ -49,7 +54,7 @@ const UploadModal = () => {
                         />
                         <button 
                             disabled 
-                            className="w-full bg-red-600 text-white p-2 shadow-md hover:brightness-125 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:hover:brightness-100"
+                            className="w-full bg-red-600 text-white p-2 shadow-md hover:brightness-125 disabledBtn"
                         >
                             Upload Post
                         </button>

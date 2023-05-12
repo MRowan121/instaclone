@@ -22,4 +22,7 @@
   .btn {
     @apply text-2xl hover:scale-125 transition-transform ease-in-out duration-200 cursor-pointer
   }
+  .disabledBtn {
+    @apply disabled:bg-gray-200 disabled:cursor-not-allowed disabled:hover:brightness-100
+  }
 }
