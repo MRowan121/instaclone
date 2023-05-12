@@ -7,9 +7,9 @@ const Story = ({ username, image, isUser }) => {
                 src={image} 
                 referrerPolicy="no-referrer"
                 alt={username}
-                className="h-14 rounded-full p-[1.5px] border-red-500 border-2 group-hover:scale-110 transition-transform duration-200 ease-out"
+                className="h-14 rounded-full p-[1.5px] border-red-500 border-2 groupedIcon"
             />
-            {isUser && <AiOutlinePlus className='text-2xl absolute top-4 left-4 text-white'/>}
+            {isUser && <AiOutlinePlus className='text-2xl absolute bottom-3 right-0 text-white bg-blue-500 rounded-full groupedIcon'/>}
             <p className="text-xs w-14 truncate">
                 {username}
             </p>

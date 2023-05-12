@@ -25,4 +25,7 @@
   .disabledBtn {
     @apply disabled:bg-gray-200 disabled:cursor-not-allowed disabled:hover:brightness-100
   }
+  .groupedIcon {
+    @apply group-hover:scale-110 transition-transform duration-200 ease-out
+  }
 }
