@@ -1,3 +1,4 @@
+import { modalState } from "../../atom/modalAtom";
 
 const UploadModal = () => {
     return (
