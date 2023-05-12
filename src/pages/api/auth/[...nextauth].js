@@ -1,5 +1,5 @@
-import NextAuth from "next-auth"
-import GoogleProvider from "next-auth/providers/google"
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -10,16 +10,16 @@ export default NextAuth({
     }),
     // ...add more providers here
   ],
-  
+
   pages: {
-    signIn: "/auth/signin"
+    signIn: "/auth/signin",
   },
 
   callbacks: {
-    async session({session, token, user}){
-        session.user.username = session.user.email.split("@")[0]
-        session.user.uid = token.sub;
-        return session;
-    }
-  }
-})
+    async session({ session, token, user }) {
+      session.user.username = session.user.email.split("@")[0];
+      session.user.uid = token.sub;
+      return session;
+    },
+  },
+});
