@@ -53,6 +53,11 @@
 
 ## Demonstration
 
+![InstaClone - Add Post](https://github.com/MRowan121/instaclone/assets/110955503/4df3fabb-2314-42af-ae19-de2e965271dc)
+![InstaClone - Add comments](https://github.com/MRowan121/instaclone/assets/110955503/73955399-f789-4399-82d2-9dd4300b31d5)
+![InstaClone - NextAuth](https://github.com/MRowan121/instaclone/assets/110955503/e4ea9063-f83e-4231-b751-2b82f2fa3b99)
+![InstaClone - Responsive](https://github.com/MRowan121/instaclone/assets/110955503/5d142f49-84c5-4924-8857-d796733730cc)
+
 ## Contributors
 
 - Matt Rowan | [GitHub](https://github.com/MRowan121) | [LinkedIn](https://www.linkedin.com/in/mrowan121/)
