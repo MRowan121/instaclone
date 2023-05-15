@@ -58,6 +58,8 @@
 ![InstaClone - NextAuth](https://github.com/MRowan121/instaclone/assets/110955503/e4ea9063-f83e-4231-b751-2b82f2fa3b99)
 ![InstaClone - Responsive](https://github.com/MRowan121/instaclone/assets/110955503/5d142f49-84c5-4924-8857-d796733730cc)
 
-## Contributors
-
-- Matt Rowan | [GitHub](https://github.com/MRowan121) | [LinkedIn](https://www.linkedin.com/in/mrowan121/)
+Contributors
+| <img src="https://github.com/MRowan121.png" width="60"> |
+|:---:|
+|**Matt Rowan**|
+| [<img src="https://user-images.githubusercontent.com/54966635/228695316-4ace3a9e-d3a1-4063-b5f5-cd6e5294c585.png" alt= “” width="35">](https://github.com/MRowan121)  [<img src="https://user-images.githubusercontent.com/54966635/228696723-e343f994-8860-4c35-9a89-5f34b7abb705.png" alt= “” width="35">](https://www.linkedin.com/in/mrowan121/) | [<img src="https://user-images.githubusercontent.com/54966635/228695316-4ace3a9e-d3a1-4063-b5f5-cd6e5294c585.png" alt= “” width="35">]
