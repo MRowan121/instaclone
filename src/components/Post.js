@@ -12,6 +12,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { database } from "../../firebase";
+import Moment from "react-moment";
 
 const Post = ({ id, username, userImg, img, caption }) => {
   const { data: session } = useSession();
@@ -34,7 +35,7 @@ const Post = ({ id, username, userImg, img, caption }) => {
     const unsubscribe = onSnapshot(
       query(
         collection(database, "posts", id, "comments"),
-        orderBy("timestamp", "desc")
+        orderBy("timestamp", "asc")
       ),
       (snapshot) => {
         setComments(snapshot.docs);
@@ -42,6 +43,19 @@ const Post = ({ id, username, userImg, img, caption }) => {
     );
     return unsubscribe;
   }, [database, id]);
+
+  const displayComments = comments.map((comment) => (
+    <div className="flex items-center space-x-2 mb-2">
+      <img
+        src={comment.data().userImage}
+        alt="user-image"
+        className="h-7 rounded-full object-cover"
+      />
+      <p className="font-semibold">{comment.data().username}</p>
+      <p className="flex-1 truncate">{comment.data().comment}</p>
+      <Moment fromNow>{comment.data().timestamp?.toDate()}</Moment>
+    </div>
+  ));
 
   return (
     <div className="bg-white my-7 border rounded-md">
@@ -76,18 +90,8 @@ const Post = ({ id, username, userImg, img, caption }) => {
         {caption}
       </p>
       {comments.length > 0 && (
-        <div>
-          {comments.map((comment) => (
-            <div className="flex items-center">
-              <img
-                src={comment.data().userImage}
-                alt="user-image"
-                className="h-12 rounded-full object-cover p-1 mr-3"
-              />
-              <p>{comment.data().username}</p>
-              <p>{comment.data().comment}</p>
-            </div>
-          ))}
+        <div className="mx-10 max-h-24 overflow-y-scroll no-scrollbar">
+          {displayComments}
         </div>
       )}
 
