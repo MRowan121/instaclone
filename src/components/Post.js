@@ -2,9 +2,25 @@ import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
 import { BsBookmark, BsEmojiSmile } from "react-icons/bs";
 import { useSession } from "next-auth/react";
+import { useState } from "react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { database } from "../../firebase";
 
 const Post = ({ id, username, userImg, img, caption }) => {
   const { data: session } = useSession();
+  const [comment, setComment] = useState("");
+
+  const sendComment = async (e) => {
+    e.preventDefault();
+    const commentToSend = comment;
+    setComment("");
+    await addDoc(collection(database, "posts", id, "comments"), {
+      comment: commentToSend,
+      username: session.user.username,
+      userImage: session.user.image,
+      timestamp: serverTimestamp(),
+    });
+  };
 
   return (
     <div className="bg-white my-7 border rounded-md">
@@ -44,11 +60,20 @@ const Post = ({ id, username, userImg, img, caption }) => {
         <form className="flex items-center p-4">
           <BsEmojiSmile className="btn mr-4" />
           <input
-            className="border-none flex-1 focus:ring-0"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            className="border-none flex-1 outline-none"
             type="text"
             placeholder="Enter your comment..."
           />
-          <button className="text-blue-400 font-bold">Post</button>
+          <button
+            type="submit"
+            disabled={!comment.trim()}
+            onClick={(e) => sendComment(e)}
+            className="text-blue-400 font-bold disabled:text-blue-200"
+          >
+            Post
+          </button>
         </form>
       )}
     </div>
