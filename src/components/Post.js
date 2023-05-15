@@ -57,7 +57,7 @@ const Post = ({ id, username, userImg, img, caption }) => {
       }
     );
     return unsubscribe;
-  }, [database, id]);
+  }, [id]);
 
   useEffect(() => {
     setHasLiked(

@@ -21,6 +21,7 @@ const Header = () => {
         <div className="cursor-pointer h-24 w-48 relative hidden lg:inline-grid">
           <Image
             src={logo}
+            alt="logo"
             layout="fill"
             className="object-contain"
             onClick={() => router.push("/")}
@@ -31,6 +32,7 @@ const Header = () => {
             src={
               "https://raw.githubusercontent.com/ijsto/reactnextjssnippets/master/images/logo02.png"
             }
+            alt="alt-logo"
             layout="fill"
             className="object-contain"
             onClick={() => router.push("/")}
