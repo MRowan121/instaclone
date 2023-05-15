@@ -2,13 +2,21 @@ import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
 import { BsBookmark, BsEmojiSmile } from "react-icons/bs";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp,
+} from "firebase/firestore";
 import { database } from "../../firebase";
 
 const Post = ({ id, username, userImg, img, caption }) => {
   const { data: session } = useSession();
   const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
 
   const sendComment = async (e) => {
     e.preventDefault();
@@ -21,6 +29,19 @@ const Post = ({ id, username, userImg, img, caption }) => {
       timestamp: serverTimestamp(),
     });
   };
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      query(
+        collection(database, "posts", id, "comments"),
+        orderBy("timestamp", "desc")
+      ),
+      (snapshot) => {
+        setComments(snapshot.docs);
+      }
+    );
+    return unsubscribe;
+  }, [database, id]);
 
   return (
     <div className="bg-white my-7 border rounded-md">
@@ -54,6 +75,21 @@ const Post = ({ id, username, userImg, img, caption }) => {
         <span className="font-bold mr-2">{username}</span>
         {caption}
       </p>
+      {comments.length > 0 && (
+        <div>
+          {comments.map((comment) => (
+            <div className="flex items-center">
+              <img
+                src={comment.data().userImage}
+                alt="user-image"
+                className="h-12 rounded-full object-cover p-1 mr-3"
+              />
+              <p>{comment.data().username}</p>
+              <p>{comment.data().comment}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Post Input Box */}
       {session && (
