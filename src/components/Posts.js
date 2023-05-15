@@ -14,7 +14,7 @@ const Posts = () => {
       }
     );
     return unsubscribe;
-  });
+  }, [database]);
 
   return (
     <>
