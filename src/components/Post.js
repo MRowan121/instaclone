@@ -72,10 +72,11 @@ const Post = ({ id, username, userImg, img, caption }) => {
         setLikes(snapshot.docs);
       }
     );
+    return unsubscribe;
   }, [database]);
 
   const displayComments = comments.map((comment) => (
-    <div className="flex items-center space-x-2 mb-2">
+    <div key={comment.data().id} className="flex items-center space-x-2 mb-2">
       <img
         src={comment.data().userImage}
         alt="user-image"
