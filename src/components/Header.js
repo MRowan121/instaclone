@@ -8,16 +8,23 @@ import {
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRecoilState } from "recoil";
 import { modalState } from "../../atom/modalAtom";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const { data: session } = useSession();
   const [open, setOpen] = useRecoilState(modalState);
+  const router = useRouter();
 
   return (
     <header className="shadow-sm border-b sticky top-0 bg-white bg-gr z-30">
       <div className="flex items-center justify-between max-w-6xl mx-4 shadow-sm xl:mx-auto">
         <div className="cursor-pointer h-24 w-48 relative hidden lg:inline-grid">
-          <Image src={logo} layout="fill" className="object-contain" />
+          <Image
+            src={logo}
+            layout="fill"
+            className="object-contain"
+            onClick={() => router.push("/")}
+          />
         </div>
         <div className="cursor-pointer h-24 w-16 relative lg:hidden">
           <Image
@@ -26,6 +33,7 @@ const Header = () => {
             }
             layout="fill"
             className="object-contain"
+            onClick={() => router.push("/")}
           />
         </div>
         <form className="relative mt-1">
@@ -39,7 +47,10 @@ const Header = () => {
           />
         </form>
         <div className="flex space-x-5 items-center">
-          <AiFillHome className="icon hidden md:inline-flex" />
+          <AiFillHome
+            className="icon hidden md:inline-flex"
+            onClick={() => router.push("/")}
+          />
           {session ? (
             <>
               <AiOutlinePlusCircle
