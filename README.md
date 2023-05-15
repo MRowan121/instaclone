@@ -16,7 +16,7 @@
 
 ## Deployable Link
 
-[IMDB_clone](https://imdb-clone-mrowan121.vercel.app/)
+[InstaClone](https://instaclone-mrowan121.vercel.app/)
 
 ## Table of Contents
 
